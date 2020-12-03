@@ -17,6 +17,6 @@ slopes.forEach(slope => {
 });
 
 console.log('Part 1: ' + slopes[1][2]);
-console.log('Part 2' + treeM);
+console.log('Part 2: ' + treeM);
 
 
