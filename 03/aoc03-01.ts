@@ -1,6 +1,7 @@
 import {readFileSync} from 'fs';
 
-const input = readFileSync('./aoc03-input.txt', 'utf-8').split('\n');
+const input = readFileSync('./03/aoc03-input.txt', 'utf-8').split('\n');
+
 let treeM = 1;
 const lineLength = input[0].length - 1;
 const slopes = [[1, 1, 0], [1, 3, 0], [1, 5, 0], [1, 7, 0], [2, 1, 0]];
