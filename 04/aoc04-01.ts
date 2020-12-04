@@ -13,9 +13,9 @@ let validLevel1 = 0, validLevel2 = 0,
             const hgt = value.match(/[a-zA-Z]{2}|[0-9]+/g);
             return hgt[1] && validHeight[hgt[1]](hgt[0]);
         },
-        hcl: (value) => value.match(/^#(?:[0-9a-fA-F]{6})/),
-        ecl: (value) => value.match(/amb|blu|brn|gry|grn|hzl|oth/),
-        pid: (value) => value.match(/^[0-9]{9}$/)
+        hcl: value => value.match(/^#(?:[0-9a-fA-F]{6})/),
+        ecl: value => value.match(/amb|blu|brn|gry|grn|hzl|oth/),
+        pid: value => value.match(/^[0-9]{9}$/)
     }
 
 readFileSync('./04/aoc04-input.txt', 'utf-8')
@@ -24,8 +24,8 @@ readFileSync('./04/aoc04-input.txt', 'utf-8')
     .forEach(line => {
         let validFields = 0;
         line
-            .split(' ').map(value => value.split(':')).filter(value => value[0] !== 'cid')
-            .forEach(value => validFields += validate[value[0]](value[1]) ? 1 : 0)
+            .split(' ').map(v => v.split(':')).filter(v => v[0] !== 'cid')
+            .forEach(v => validFields += validate[v[0]](v[1]) ? 1 : 0)
         validLevel1++;
         validLevel2 += validFields === 7 ? 1 : 0;
     })
