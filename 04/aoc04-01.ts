@@ -1,7 +1,7 @@
 import {readFileSync} from 'fs';
 
-// const input = readFileSync('./04/aoc04-input.txt', 'utf-8')
-// const input = readFileSync('./04/aoc04-input.txt', 'utf-8')
+// const input = readFileSync('./04/aoc04-input-test-01.txt', 'utf-8')
+// const input = readFileSync('./04/aoc04-input-test-02.txt', 'utf-8')
 const input = readFileSync('./04/aoc04-input.txt', 'utf-8')
     .trimEnd().replace(/\r\n/g, ' ').split('  ');
 
