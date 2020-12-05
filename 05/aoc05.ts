@@ -1,5 +1,6 @@
 import {readFileSync} from 'fs';
 
+// see meetod on siin sellepärast, et esmakordselt lahendades ei näinud istmekoodis kahendarvu, vt. aoc05_alt01.ts
 const calc = (seat, from, to, max, inc) =>
     [...seat.slice(from, to)].reduce((a, b) => {
         b === inc ? a[0] = a[0] + (a[1] - a[0] + 1) / 2 : a[1] = a[0] + (a[1] - a[0] + 1) / 2 - 1;
