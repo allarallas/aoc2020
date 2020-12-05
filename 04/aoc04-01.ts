@@ -2,20 +2,20 @@ import {readFileSync} from 'fs';
 
 let validLevel1 = 0, validLevel2 = 0,
     validHeight = {
-        cm: (value: number) => value >= 150 && value <= 193,
-        in: (value: number) => value >= 59 && value <= 76,
+        cm: v => v >= 150 && v <= 193,
+        in: v => v >= 59 && v <= 76,
     },
     validate = {
-        byr: (value: number) => value >= 1920 && value <= 2002,
-        iyr: (value: number) => value >= 2010 && value <= 2020,
-        eyr: (value: number) => value >= 2020 && value <= 2030,
-        hgt: value => {
-            const hgt = value.match(/[a-zA-Z]{2}|[0-9]+/g);
+        byr: v => v >= 1920 && v <= 2002,
+        iyr: v => v >= 2010 && v <= 2020,
+        eyr: v => v >= 2020 && v <= 2030,
+        hgt: v => {
+            const hgt = v.match(/[a-zA-Z]{2}|[0-9]+/g);
             return hgt[1] && validHeight[hgt[1]](hgt[0]);
         },
-        hcl: value => value.match(/^#(?:[0-9a-fA-F]{6})/),
-        ecl: value => value.match(/amb|blu|brn|gry|grn|hzl|oth/),
-        pid: value => value.match(/^[0-9]{9}$/)
+        hcl: v => v.match(/^#(?:[0-9a-fA-F]{6})/),
+        ecl: v => v.match(/amb|blu|brn|gry|grn|hzl|oth/),
+        pid: v => v.match(/^[0-9]{9}$/)
     }
 
 readFileSync('./04/aoc04-input.txt', 'utf-8')
