@@ -9,4 +9,4 @@ const p2 = input
         .reduce((p, c) => p.filter(v => c.indexOf(v) >= 0), group.split('\n')[0].split('')).length)
     .reduce((p, c) => p + c);
 
-console.log('Misead result: ', p1, 'Correct result: ', p2);
+console.log('Misread result: ', p1, 'Correct result: ', p2);
