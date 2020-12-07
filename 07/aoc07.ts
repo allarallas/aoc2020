@@ -26,14 +26,12 @@ function whereToLook(bag, set: Set<string>): Set<string> {
     return set;
 }
 
-function feelTheWeight(bag, count: number, multiplier): number {
-    rules.filter(rule => rule.bag === bag).forEach(rule => { // Ce ñ'est pas une ombre
-        rule.rules.filter(rule => rule.count > 0).forEach(rule => {
-            count = feelTheWeight(rule.bag, count + rule.count * multiplier, rule.count * multiplier);
-        });
-    })
-    return count;
-}
+const feelTheWeight = (bag, count: number, multiplier) =>
+    rules.filter(rule => rule.bag === bag).reduce((count, rule) =>
+        rule.rules.filter(rule => rule.count > 0)
+            .reduce((count: number, rule) =>
+                feelTheWeight(rule.bag, count + rule.count * multiplier, rule.count * multiplier), count), count);
+
 
 const bag = 'shiny gold'; // of
 console.log(whereToLook(bag, new Set()).size, feelTheWeight(bag, 0, 1));
